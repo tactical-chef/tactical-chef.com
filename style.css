@@ -55,7 +55,7 @@ body, html {
 }
 
 .navbar-menu a:hover {
-    color: #f43c64;
+    color: #ff5151;
 }
 
 .navbar-hamburger {
@@ -217,10 +217,11 @@ a:hover {
     padding-left: 20%;
     padding-right: 20%;
     min-height: 50vh;
+    margin-bottom: 2rem;
 }
 
 .section-title {
-    color: #751629;
+    color: #455602;
     text-align: center;
     margin-bottom: 3rem;
     font-family: 'Italianno', cursive;
