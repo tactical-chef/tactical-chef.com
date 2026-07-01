@@ -253,8 +253,8 @@ a:hover {
 
 #color-divider {
     width: 100%;
-    padding: 5rem;
-    background-color: #4e5826;
+    padding: 2rem;
+    background-color: #5e673c;
 }
 
 .pricing {
@@ -263,6 +263,7 @@ a:hover {
     font-family: 'Oswald', sans-serif;
     font-size: clamp(1rem, 1.2vw, 2rem);
     font-weight: 100;
+    margin: 0;
 }
 
 /* ------------- FLOATING IMAGES ------------- */
