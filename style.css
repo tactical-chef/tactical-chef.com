@@ -262,11 +262,11 @@ a:hover {
 /* ----------------- INTRO ----------------- */
 
 .subpage-body {
-    background-image: url("images/home/background.jpg");
+    background-image: url("images/background.jpg");
 }
 
 .intro {
-    background-image: url("images/home/background.jpg");
+    background-image: url("images/background.jpg");
     padding: 5rem;
     padding-left: 20%;
     padding-right: 20%;
