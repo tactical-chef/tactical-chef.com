@@ -1,28 +1,18 @@
 <header class="navbar" id="navbar">
-    <div class="navbar-logo unselectable">
-        <img src="images/home/logo-wide-white.png" class="unselectable" alt="The Tactical Chef Logo">
+    <div class="navbar-logo">
+        <img src="images/home/logo-wide-white.png" alt="The Tactical Chef Logo">
     </div>
-    <nav class="navbar-menu hoverclick">
-        <ul class="hoverclick">
-            <li class="hoverclick"><a href="index.html" class="hoverclick">HOME</a></li>
-            <li class="hoverclick"><a href="about.html" class="hoverclick">ABOUT</a></li>
-            <li class="hoverclick"><a href="menu.html" class="hoverclick">MENU</a></li>
-            <li class="hoverclick"><a href="contact.html" class="hoverclick">CONTACT</a></li>
+
+    <nav class="navbar-menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
         </ul>
     </nav>
-    <div class="navbar-hamburger hoverclick">
+
+    <div class="navbar-hamburger">
         <i class="fas fa-bars"></i>
     </div>
 </header>
-
-<script>
-  // Hamburger toggle
-  const hamburger = document.querySelector('.navbar-hamburger i');
-  const menu = document.querySelector('.navbar-menu');
-
-  document.querySelector('.navbar-hamburger').addEventListener('click', () => {
-      menu.classList.toggle('active');
-      hamburger.classList.toggle('fa-bars');
-      hamburger.classList.toggle('fa-xmark');
-  });
-</script>

@@ -65,15 +65,35 @@
             .then(html => {
                 document.getElementById('navbar-placeholder').innerHTML = html;
 
-                // Hamburger menu
-                const hamburger = document.querySelector('.navbar-hamburger');
+                const hamburgerBtn = document.querySelector('.navbar-hamburger');
                 const hamburgerIcon = document.querySelector('.navbar-hamburger i');
                 const menu = document.querySelector('.navbar-menu');
 
-                hamburger.addEventListener('click', () => {
+                function closeMenu() {
+                    menu.classList.remove('active');
+                    hamburgerIcon.classList.add('fa-bars');
+                    hamburgerIcon.classList.remove('fa-xmark');
+                    document.body.classList.remove('menu-open');
+                }
+
+                hamburgerBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent the document click handler from firing
+
                     menu.classList.toggle('active');
                     hamburgerIcon.classList.toggle('fa-bars');
                     hamburgerIcon.classList.toggle('fa-xmark');
+                    document.body.classList.toggle('menu-open');
+                });
+
+                // Close when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (
+                        menu.classList.contains('active') &&
+                        !menu.contains(e.target) &&
+                        !hamburgerBtn.contains(e.target)
+                    ) {
+                        closeMenu();
+                    }
                 });
             });
 

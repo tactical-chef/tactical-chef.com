@@ -68,34 +68,72 @@ body, html {
     z-index: 1010;
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 /* Mobile menu */
 @media (max-width: 768px) {
-    .navbar-menu {
+
+    /* Keep logo and hamburger above the menu */
+    .navbar {
         position: absolute;
-        top: 100%;
-        right: 0;
-        width: 200px;
-        background-color: #171717;
-        border-radius: 4px;
+        z-index: 1002;
+    }
+
+    .navbar-logo {
+        position: relative;
+        z-index: 1003;
+    }
+
+    .navbar-hamburger {
+        display: block;
+        position: relative;
+        z-index: 1003;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #ffffff;
+    }
+
+    /* Dropdown menu */
+    .navbar-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+
+        /* background-color: #171717; */
+        background-color: #1b1b1b;
+
+
+        display: flex;
         flex-direction: column;
-        overflow: hidden;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
+        justify-content: flex-start;
+
+        padding-top: 82px; /* Height of navbar */
+        padding-bottom: 0;
+
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+
         z-index: 1001;
     }
 
     .navbar-menu.active {
-        opacity: 1;
-        visibility: visible;
+        transform: translateY(0);
     }
 
     .navbar-menu ul {
+        list-style: none;
+        display: flex;
         flex-direction: column;
+        gap: 0;
+        width: 100%;
     }
 
     .navbar-menu li {
-        border-bottom: 1px solid #333;
+        width: 100%;
+        border-top: 1px solid #333;
     }
 
     .navbar-menu li:last-child {
@@ -104,12 +142,16 @@ body, html {
 
     .navbar-menu a {
         display: block;
-        padding: 1rem;
-        color: #fff;
+        width: 100%;
+        padding: 1rem 2rem;
+        color: #ffffff;
+        text-decoration: none;
+        text-align: center; /* Change to center if preferred */
     }
 
-    .navbar-hamburger {
-        display: block;
+    .navbar-menu a:hover {
+        background-color: #222;
+        color: #ff5151;
     }
 }
 
