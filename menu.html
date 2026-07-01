@@ -23,7 +23,8 @@
             <h1 class="section-title">Our Menu</h1>
             <hr class="section-divider">
             <hr class="section-divider">
-            <p class="section-text">Our menu is fully customizable to your event. Let us know what your ideal menu looks like! <br>See below for menu inspiration and photos from past events.</p>
+            <p class="section-text">Our menu is fully customizable to your event. Let us know what your ideal menu looks
+                like! <br>See below for menu inspiration and photos from past events.</p>
         </section>
         <section id="gallery">
             <div class="section">
@@ -41,6 +42,17 @@
             .then(response => response.text())
             .then(html => {
                 document.getElementById('navbar-placeholder').innerHTML = html;
+
+                // Hamburger menu
+                const hamburger = document.querySelector('.navbar-hamburger');
+                const hamburgerIcon = document.querySelector('.navbar-hamburger i');
+                const menu = document.querySelector('.navbar-menu');
+
+                hamburger.addEventListener('click', () => {
+                    menu.classList.toggle('active');
+                    hamburgerIcon.classList.toggle('fa-bars');
+                    hamburgerIcon.classList.toggle('fa-xmark');
+                });
             });
 
         fetch('footer.html')
@@ -48,34 +60,6 @@
             .then(html => {
                 document.getElementById('footer-placeholder').innerHTML = html;
             });
-
-        // Smooth scroll for home page chevron
-        document.addEventListener('DOMContentLoaded', () => {
-            const arrow = document.getElementById('landing-arrow');
-
-            arrow.addEventListener('click', () => {
-                document.querySelector('main').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-
-        // Scroll reveal animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("animate");
-                    observer.unobserve(entry.target); // only animate once
-                }
-            });
-        }, {
-            threshold: 0.3
-        });
-        document.querySelectorAll(".section").forEach(section => {
-            observer.observe(section);
-        });
-
     </script>
 
 </body>

@@ -24,11 +24,17 @@
             <hr class="section-divider">
             <hr class="section-divider">
             <br><br><br>
-            <p class="section-text blurb">My love of food started early, growing up in an African American household shaped by Southern soul food, while spending just as much time with my best friend's Italian family around their table. We shared an equal part of each other's traditions, and those two culinary worlds still influence how I cook today.</p>
+            <p class="section-text blurb">My love of food started early, growing up in an African American household
+                shaped by Southern soul food, while spending just as much time with my best friend's Italian family
+                around their table. We shared an equal part of each other's traditions, and those two culinary worlds
+                still influence how I cook today.</p>
             <br><br>
-            <p class="section-text blurb">My true passion for cooking came later while serving as a federal police officer and firefighter, where I began cooking for my teammates. What started as a hobby became a passion, then an obsession. Over time, I've explored many cuisines, always learning, always growing.</p>
+            <p class="section-text blurb">My true passion for cooking came later while serving as a federal police
+                officer and firefighter, where I began cooking for my teammates. What started as a hobby became a
+                passion, then an obsession. Over time, I've explored many cuisines, always learning, always growing.</p>
             <br><br>
-            <p class="section-text blurb">Cooking is my art, my passion, and one of my greatest joys to share with others.</p>
+            <p class="section-text blurb">Cooking is my art, my passion, and one of my greatest joys to share with
+                others.</p>
             <br><br>
             <p class="section-text blurb"><i>At your service,</i></p>
             <p class="section-text blurb"><i>The Tactical Chef</i></p>
@@ -41,7 +47,9 @@
                     <p class="textbox-title">The Tactical Chef</p>
                     <hr class="section-divider">
                     <hr class="section-divider">
-                    <p class="textbox-text">Chef Al Nelson pictured preparing dishes at the Belvedere Lenox Event Space. <a href="menu.html#gallery">Check out more photos from past events!</a></p>
+                    <p class="textbox-text">Chef Al Nelson pictured preparing dishes at the Belvedere Lenox Event Space.
+                        <a href="menu.html#gallery">Check out more photos from past events!</a>
+                    </p>
                 </div>
             </div>
         </section>
@@ -56,6 +64,17 @@
             .then(response => response.text())
             .then(html => {
                 document.getElementById('navbar-placeholder').innerHTML = html;
+
+                // Hamburger menu
+                const hamburger = document.querySelector('.navbar-hamburger');
+                const hamburgerIcon = document.querySelector('.navbar-hamburger i');
+                const menu = document.querySelector('.navbar-menu');
+
+                hamburger.addEventListener('click', () => {
+                    menu.classList.toggle('active');
+                    hamburgerIcon.classList.toggle('fa-bars');
+                    hamburgerIcon.classList.toggle('fa-xmark');
+                });
             });
 
         fetch('footer.html')
@@ -63,34 +82,6 @@
             .then(html => {
                 document.getElementById('footer-placeholder').innerHTML = html;
             });
-
-        // Smooth scroll for home page chevron
-        document.addEventListener('DOMContentLoaded', () => {
-            const arrow = document.getElementById('landing-arrow');
-
-            arrow.addEventListener('click', () => {
-                document.querySelector('main').scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        });
-
-        // Scroll reveal animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("animate");
-                    observer.unobserve(entry.target); // only animate once
-                }
-            });
-        }, {
-            threshold: 0.3
-        });
-        document.querySelectorAll(".section").forEach(section => {
-            observer.observe(section);
-        });
-
     </script>
 
 </body>
