@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>The Tactical Chef</title>
@@ -9,13 +10,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://fonts.googleapis.com/css?family=Italianno' rel='stylesheet'>
 </head>
+
 <body>
     <!-- Hero section -->
     <div class="hero-container hero-full">
         <div id="navbar-placeholder"></div>
         <img id="hero-background" src="images/home/landing-image.jpg" alt="Full screen landing page image">
         <img id="hero-title" src="images/home/landing-title.png" alt="The Tactical Chef title">
-        <a id="contact-us-btn" href="contact.html"><img id="contact-us-img" src="images/home/contact-us.png" alt="Contact us button"></a>
+        <a id="contact-us-btn" href="contact.html"><img id="contact-us-img" src="images/home/contact-us.png"
+                alt="Contact us button"></a>
         <i id="landing-arrow" class="fas fa-chevron-down"></i>
     </div>
 
@@ -24,7 +27,9 @@
             <h1 class="section-title">The &nbsp;Tactical&nbsp; Experience</h1>
             <hr class="section-divider">
             <hr class="section-divider">
-            <p class="section-text">We specialize in catering small events throughout Western Massachusetts and the Albany area. From home brunches and dinner parties to public venues, let us bring a tactical flair to your next event.</p>
+            <p class="section-text">We specialize in catering small events throughout Western Massachusetts and the
+                Albany area. From home brunches and dinner parties to public venues, let us bring a tactical flair to
+                your next event.</p>
         </section>
 
         <section id="color-divider">
@@ -39,7 +44,9 @@
                     <p class="textbox-title">Our Menu</p>
                     <hr class="section-divider">
                     <hr class="section-divider">
-                    <p class="textbox-text">We offer fully-customizable menus featuring handcrafted hors d'oeuvres, appetizers, fresh salads, premium entrées, seafood, grilled meats, brunch favorites, and seasonal sides. <a href="#menu">Browse our sample menus</a> for inspiration.</p>
+                    <p class="textbox-text">We offer fully-customizable menus featuring handcrafted hors d'oeuvres,
+                        appetizers, fresh salads, premium entrées, seafood, grilled meats, brunch favorites, and
+                        seasonal sides. <a href="#menu">Browse our sample menus</a> for inspiration.</p>
                 </div>
             </div>
         </section>
@@ -51,7 +58,9 @@
                     <p class="textbox-title">Meet the Chef</p>
                     <hr class="section-divider">
                     <hr class="section-divider">
-                    <p class="textbox-text">Meet the chef behind the menu. Chef Al Nelson combines his experience as a firefighter with a unique blend of Southern and Italian culinary influences. <a href="about.html">Learn more about his story.</a></p>
+                    <p class="textbox-text">Meet the chef behind the menu. Chef Al Nelson combines his experience as a
+                        firefighter with a unique blend of Southern and Italian culinary influences. <a
+                            href="about.html">Learn more about his story.</a></p>
                 </div>
             </div>
         </section>
@@ -63,47 +72,29 @@
                     <p class="textbox-title">Gallery</p>
                     <hr class="section-divider">
                     <hr class="section-divider">
-                    <p class="textbox-text">See what we've been cooking. <a href="#menu">Browse our gallery</a> for inspiration to plan your next event. From elegant hors d'oeuvres to stunning entrées, every dish is crafted with quality ingredients and the utmost precision.</p>
+                    <p class="textbox-text">See what we've been cooking. <a href="#menu">Browse our gallery</a> for
+                        inspiration to plan your next event. From elegant hors d'oeuvres to stunning entrées, every dish
+                        is crafted with quality ingredients and the utmost precision.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div id="footer-contact" class="footer-section">
-                <h1>CONTACT</h1>
-                <p>Alan Nelson</p>
-                <p>alan@tacticalchef.com</p>
-                <p>000-000-0000</p>
-            </div>
+    <div id="footer-placeholder"></div>
 
-            <div id="footer-quick-links" class="footer-section">
-                <h1>QUICK LINKS</h1>
-                <p><a href="#about">About Us</a></p>
-                <p><a href="#menu">Menu</a></p>
-                <p><a href="#menu">Gallery</a></p> <!-- add anchor to gallery section -->
-            </div>
-
-            <div id="footer-locations" class="footer-section">
-                <h1>LOCATION</h1>
-                <p>Western Massachusetts</p>
-                <p>Based in the Berkshires & Albany</p>
-            </div>
-        </div>
-
-        <p class="footer-copyright">
-            &copy; 2026 The Tactical Chef. All rights reserved.
-        </p>
-    </footer>
-
-    <!-- Load navbar partial -->
     <script>
+        // Load navbar and footer partial
         fetch('navbar.html')
-          .then(response => response.text())
-          .then(html => {
-              document.getElementById('navbar-placeholder').innerHTML = html;
-          });
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
 
         // Smooth scroll for home page chevron
         document.addEventListener('DOMContentLoaded', () => {
@@ -128,7 +119,6 @@
         }, {
             threshold: 0.3
         });
-
         document.querySelectorAll(".section").forEach(section => {
             observer.observe(section);
         });
@@ -136,4 +126,5 @@
     </script>
 
 </body>
+
 </html>

@@ -481,3 +481,14 @@ footer {
     opacity: 1;
     transform: translateX(0);
 }
+
+.blurb {
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+#about-img {
+    width: 50%;
+    align-items: right;
+}
