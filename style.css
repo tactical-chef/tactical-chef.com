@@ -449,3 +449,35 @@ footer {
         order: 2 !important;
     }
 }
+
+/* Initial state */
+.imagebox,
+.textbox {
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Image starts from its own side */
+.imagebox.left {
+    transform: translateX(20px);
+}
+
+.imagebox.right {
+    transform: translateX(-20px);
+}
+
+/* Text starts from the OPPOSITE side */
+.textbox.left {
+    transform: translateX(20px);
+}
+
+.textbox.right {
+    transform: translateX(-20px);
+}
+
+/* Animate in */
+.section.animate .imagebox,
+.section.animate .textbox {
+    opacity: 1;
+    transform: translateX(0);
+}

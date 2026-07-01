@@ -117,6 +117,22 @@
             });
         });
 
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                    observer.unobserve(entry.target); // only animate once
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        document.querySelectorAll(".section").forEach(section => {
+            observer.observe(section);
+        });
+
     </script>
 
 </body>
