@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Tactical Chef - About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Catering for small groups in Western Mass">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Italianno' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Hero section -->
+    <div class="hero-container hero-half">
+        <div id="navbar-placeholder"></div>
+        <img id="hero-background-partial" class="unselectable" src="images/subpages/hero-1.jpg" alt="Hero image">
+    </div>
+
+    <main id="main">
+        <section id="about-intro" class="intro">
+            <h1 class="section-title">About Us</h1>
+            <hr class="section-divider">
+            <hr class="section-divider">
+            <br><br><br>
+            <p class="section-text blurb">My love of food started early, growing up in an African American household
+                shaped by Southern soul food, while spending just as much time with my best friend's Italian family
+                around their table. We shared an equal part of each other's traditions, and those two culinary worlds
+                still influence how I cook today.</p>
+            <br><br>
+            <p class="section-text blurb">My true passion for cooking came later while serving as a federal police
+                officer and firefighter, where I began cooking for my teammates. What started as a hobby became a
+                passion, then an obsession. Over time, I've explored many cuisines, always learning, always growing.</p>
+            <br><br>
+            <p class="section-text blurb">Cooking is my art, my passion, and one of my greatest joys to share with
+                others.</p>
+            <br><br>
+            <p class="section-text blurb"><i>At your service,</i></p>
+            <p class="section-text blurb"><i>The Tactical Chef</i></p>
+            <p class="section-text blurb"><i>Al Nelson</i></p>
+        </section>
+        <section id="menu">
+            <div class="section">
+                <div class="imagebox right unselectable"><img src="images/subpages/alan-about.png"></div>
+                <div class="textbox left">
+                    <p class="textbox-title">The Tactical Chef</p>
+                    <hr class="section-divider">
+                    <hr class="section-divider">
+                    <p class="textbox-text">Chef Al Nelson pictured preparing dishes at the Belvedere Lenox Event Space.
+                        <a href="menu.html#gallery">Check out more photos from past events!</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load navbar and footer partial
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+
+                const hamburgerBtn = document.querySelector('.navbar-hamburger');
+                const hamburgerIcon = document.querySelector('.navbar-hamburger i');
+                const menu = document.querySelector('.navbar-menu');
+
+                function closeMenu() {
+                    menu.classList.remove('active');
+                    hamburgerIcon.classList.add('fa-bars');
+                    hamburgerIcon.classList.remove('fa-xmark');
+                    document.body.classList.remove('menu-open');
+                }
+
+                hamburgerBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent the document click handler from firing
+
+                    menu.classList.toggle('active');
+                    hamburgerIcon.classList.toggle('fa-bars');
+                    hamburgerIcon.classList.toggle('fa-xmark');
+                    document.body.classList.toggle('menu-open');
+                });
+
+                // Close when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (
+                        menu.classList.contains('active') &&
+                        !menu.contains(e.target) &&
+                        !hamburgerBtn.contains(e.target)
+                    ) {
+                        closeMenu();
+                    }
+                });
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                    observer.unobserve(entry.target); // only animate once
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+        document.querySelectorAll(".section").forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Tactical Chef</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Catering for small groups in Western Mass">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Italianno' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Hero section -->
+    <div class="hero-container hero-full hoverclick">
+        <div id="navbar-placeholder"></div>
+        <img id="hero-background" class="unselectable" src="images/home/landing-image.jpg"
+            alt="Full screen landing page image">
+        <img id="hero-title" class="unselectable" src="images/home/landing-title.png" alt="The Tactical Chef title">
+        <a id="contact-us-btn" class="hoverclick" href="contact.html"><img id="contact-us-img" class="hoverclick"
+                src="images/home/contact-us.png" alt="Contact us button"></a>
+        <i id="landing-arrow" class="fas fa-chevron-down"></i>
+    </div>
+
+    <main id="main">
+        <section id="landing-intro" class="intro">
+            <h1 class="section-title">The &nbsp;Tactical&nbsp; Experience</h1>
+            <hr class="section-divider">
+            <hr class="section-divider">
+            <p class="section-text">We specialize in catering small events throughout Western Massachusetts and the
+                Albany area. From home brunches and dinner parties to public venues, let us bring a tactical flair to
+                your next event.</p>
+        </section>
+
+        <section id="color-divider">
+            <p class="pricing">Please reach out directly for pricing, scheduling, and menu discussions.</p>
+            <p class="pricing">000-000-0000 &nbsp;| &nbsp;AL@tactical-chef.com</p>
+        </section>
+
+        <section id="menu">
+            <div class="section">
+                <div class="imagebox right unselectable"><img src="images/home/bruschetta.jpg"></div>
+                <div class="textbox left">
+                    <p class="textbox-title">Our Menu</p>
+                    <hr class="section-divider">
+                    <hr class="section-divider">
+                    <p class="textbox-text">We offer fully-customizable menus featuring handcrafted hors d'oeuvres,
+                        appetizers, fresh salads, premium entrées, seafood, grilled meats, brunch favorites, and
+                        seasonal sides. <a href="menu.html">Browse our sample menu items</a> for inspiration.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="section">
+                <div class="imagebox left unselectable"><img src="images/home/alan.jpg"></div>
+                <div class="textbox right">
+                    <p class="textbox-title">Meet the Chef</p>
+                    <hr class="section-divider">
+                    <hr class="section-divider">
+                    <p class="textbox-text">Meet the chef behind the menu. Chef Al Nelson combines his experience as a
+                        firefighter with a unique blend of Southern and Italian culinary influences. <a
+                            href="about.html">Learn more about his story.</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery-tile">
+            <div class="section">
+                <div class="imagebox right unselectable"><img src="images/home/cucumber.jpg"></div>
+                <div class="textbox left">
+                    <p class="textbox-title">Gallery</p>
+                    <hr class="section-divider">
+                    <hr class="section-divider">
+                    <p class="textbox-text">See what we've been cooking. <a href="menu.html#gallery">Browse our gallery</a> for
+                        inspiration to plan your next event. From elegant hors d'oeuvres to stunning entrées, every dish
+                        is crafted with quality ingredients and the utmost precision.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        // Load navbar and footer partial
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('navbar-placeholder').innerHTML = html;
+
+                const hamburgerBtn = document.querySelector('.navbar-hamburger');
+                const hamburgerIcon = document.querySelector('.navbar-hamburger i');
+                const menu = document.querySelector('.navbar-menu');
+
+                function closeMenu() {
+                    menu.classList.remove('active');
+                    hamburgerIcon.classList.add('fa-bars');
+                    hamburgerIcon.classList.remove('fa-xmark');
+                    document.body.classList.remove('menu-open');
+                }
+
+                hamburgerBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Prevent the document click handler from firing
+
+                    menu.classList.toggle('active');
+                    hamburgerIcon.classList.toggle('fa-bars');
+                    hamburgerIcon.classList.toggle('fa-xmark');
+                    document.body.classList.toggle('menu-open');
+                });
+
+                // Close when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (
+                        menu.classList.contains('active') &&
+                        !menu.contains(e.target) &&
+                        !hamburgerBtn.contains(e.target)
+                    ) {
+                        closeMenu();
+                    }
+                });
+            });
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+
+        // Smooth scroll for home page chevron
+        document.addEventListener('DOMContentLoaded', () => {
+            const arrow = document.getElementById('landing-arrow');
+
+            arrow.addEventListener('click', () => {
+                document.querySelector('main').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate");
+                    observer.unobserve(entry.target); // only animate once
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+        document.querySelectorAll(".section").forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+
+</body>
+
+</html>
