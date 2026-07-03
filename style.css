@@ -262,11 +262,11 @@ a:hover {
 /* ----------------- INTRO ----------------- */
 
 .subpage-body {
-    background-image: url("images/background.jpg");
+    background-image: url("/images/background.jpg");
 }
 
 .intro {
-    background-image: url("images/background.jpg");
+    background-image: url("/images/background.jpg");
     padding: 5rem;
     padding-left: 20%;
     padding-right: 20%;
@@ -364,10 +364,8 @@ a:hover {
 .subpage-textbox {
     background: white;
     text-align: center;
-    width: fit-content;
-    margin: auto;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+    width: min(100%, 700px);
+    margin: 4rem auto;
     padding: 2rem;
     z-index: 2;
     position: relative;
@@ -376,7 +374,6 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
     outline: 1px solid #b8c48e;
     outline-offset: -15px; 
 }
@@ -496,6 +493,12 @@ footer {
 
 /* ----------------- RESPONSIVE CONTENT ----------------- */
 @media (max-width: 768px) {
+    .subpage-textbox {
+        width: 140%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
     .section {
         flex-direction: column;
         min-height: auto;

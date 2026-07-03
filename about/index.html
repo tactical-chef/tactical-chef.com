@@ -6,7 +6,7 @@
     <title>The Tactical Chef - About</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Catering for small groups in Western Mass">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://fonts.googleapis.com/css?family=Italianno' rel='stylesheet'>
 </head>
@@ -15,7 +15,7 @@
     <!-- Hero section -->
     <div class="hero-container hero-half">
         <div id="navbar-placeholder"></div>
-        <img id="hero-background-partial" class="unselectable" src="images/subpages/hero-1.jpg" alt="Hero image">
+        <img id="hero-background-partial" class="unselectable" src="/images/subpages/hero-1.jpg" alt="Hero image">
     </div>
 
     <main id="main">
@@ -42,13 +42,13 @@
         </section>
         <section id="menu">
             <div class="section">
-                <div class="imagebox right unselectable"><img src="images/subpages/alan-about.png"></div>
+                <div class="imagebox right unselectable"><img src="/images/subpages/alan-about.png"></div>
                 <div class="textbox left">
                     <p class="textbox-title">The Tactical Chef</p>
                     <hr class="section-divider">
                     <hr class="section-divider">
                     <p class="textbox-text">Chef Al Nelson pictured preparing dishes at the Belvedere Lenox Event Space.
-                        <a href="menu.html#gallery">Check out more photos from past events!</a>
+                        <a href="/menu/#gallery">Check out more photos from past events!</a>
                     </p>
                 </div>
             </div>
@@ -60,7 +60,7 @@
 
     <script>
         // Load navbar and footer partial
-        fetch('navbar.html')
+        fetch('../navbar.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('navbar-placeholder').innerHTML = html;
@@ -97,7 +97,7 @@
                 });
             });
 
-        fetch('footer.html')
+        fetch('../footer.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('footer-placeholder').innerHTML = html;

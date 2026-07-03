@@ -6,7 +6,7 @@
     <title>The Tactical Chef - Contact Us</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Catering for small groups in Western Mass">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href='https://fonts.googleapis.com/css?family=Italianno' rel='stylesheet'>
 </head>
@@ -15,7 +15,7 @@
     <!-- Hero section -->
     <div class="hero-container hero-half">
         <div id="navbar-placeholder"></div>
-        <img id="hero-background-partial" class="unselectable" src="images/subpages/hero-1.jpg" alt="Hero image">
+        <img id="hero-background-partial" class="unselectable" src="/images/subpages/hero-1.jpg" alt="Hero image">
     </div>
 
     <main id="main">
@@ -25,9 +25,9 @@
             <hr class="section-divider">
             <p class="section-text">Please do not hesitate to reach out! We are happy to answer any questions.</p>
             <div class="subpage-textbox">
-                <p class="section-text contact-info">Call or Text: <a>000-000-0000</a></p>
+                <p class="section-text contact-info">Call or Text: <a>+1 (518) 955-1851</a></p>
                 <p class="section-text contact-info">Email: <a
-                        href="mailto:AL@tactical-chef.com">AL@tactical-chef.com</a></p>
+                        href="mailto:alan@tactical-chef.com">alan@tactical-chef.com</a></p>
                 <br>
             </div>
         </section>
@@ -37,7 +37,7 @@
 
     <script>
         // Load navbar and footer partial
-        fetch('navbar.html')
+        fetch('../navbar.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('navbar-placeholder').innerHTML = html;
@@ -74,7 +74,7 @@
                 });
             });
 
-        fetch('footer.html')
+        fetch('../footer.html')
             .then(response => response.text())
             .then(html => {
                 document.getElementById('footer-placeholder').innerHTML = html;
