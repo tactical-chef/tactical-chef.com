@@ -128,7 +128,7 @@
 
             div.addEventListener("click", () => {
                 modal.classList.add("active");
-                modalImg.src = img.src;
+                modalImg.src = img.src.replace("/compressed/", "/full/");
                 caption.textContent = item[1];
             });
 
