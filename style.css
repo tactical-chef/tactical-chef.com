@@ -316,6 +316,10 @@ a:hover {
     margin: 0;
 }
 
+.pricing > a {
+    color: rgb(235, 235, 235);
+}
+
 /* ------------- FLOATING IMAGES ------------- */
 
 .section {
